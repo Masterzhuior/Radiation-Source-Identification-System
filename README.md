@@ -101,7 +101,7 @@ python3 app.py
 
 + 数据筛选
 + 数据清除
-+ 
+
 代码在anomaly.py文件中，主要使用了下面四个函数。
 
 from anomaly import load_anomaly_model, test_anomaly, anomaly_save_and_sort, anomaly_data_select_func
