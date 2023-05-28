@@ -43,11 +43,11 @@ python3 app.py
 
 启动UI界面，通过端口localhost:36536可以进行访问
 
-在PyWebIO中，start_server()函数用于启动一个Web服务器，并将带有PyWebIO应用程序的页面服务。debug参数是可选的，用于设置调试模式。
-
-当debug设置为True时，PyWebIO将在运行期间输出详细的调试信息，在开发和调试应用程序时非常有用。此时，运行PyWebIO应用程序时，Web浏览器将现在在调试模式下，同时Python控制台将显示详细的应用程序运行日志。
-
-但是，当准备将应用程序部署到生产环境时，应将debug设置为False或省略该参数。这样可以避免在生产环境中泄露敏感信息，并提高应用程序的安全性。
+> 在PyWebIO中，start_server()函数用于启动一个Web服务器，并将带有PyWebIO应用程序的页面服务。debug参数是可选的，用于设置调试模式。
+> 
+> 当debug设置为True时，PyWebIO将在运行期间输出详细的调试信息，在开发和调试应用程序时非常有用。此时，运行PyWebIO应用程序时，Web浏览器将现在在调试模式下，同时Python控制台将显示详细的应用程序运行日志。
+> 
+> 但是，当准备将应用程序部署到生产环境时，应将debug设置为False或省略该参数。这样可以避免在生产环境中泄露敏感信息，并提高应用程序的安全性。
 
 #### ui
 查看pywebio.output.put_row函数，里面有很多put_buttons功能。
@@ -74,7 +74,7 @@ python3 app.py
 4. 如果用户选择了 "筛选分类数据"，那么会从数据库中读取已有的类别和相应的文件名，并将这些文件移动到对应的类别文件夹中。
 5. 如果用户选择了 "数据上传"，那么会先列出已经存在的类别文件夹，让用户选择将文件上传到哪个文件夹中。然后使用 input.file_upload() 函数让用户上传具体的文件，并将该文件添加到所选的类别文件夹中。
 
-备注：该函数中的文件路径和数据库文件名可能需要根据实际情况进行修改。
+> 备注：该函数中的文件路径和数据库文件名可能需要根据实际情况进行修改。
 
 #### retrain_model
 该代码在new_feature.py 文件中。
@@ -85,7 +85,7 @@ python3 app.py
 2. 根据用户的选择，执行相应的训练命令。
 3. 将训练过程中的输出信息打印到控制台。
 
-说明：重新训练模型调用的是subporcess模块，即在python中开启另一个进程，调用其他软件。比如按下按钮后，就会通过python运行shell脚本，重新训练模型，注意，这里重新训练的模型名字，要与之前的加载的函数名字一样。
+> 说明：重新训练模型调用的是subporcess模块，即在python中开启另一个进程，调用其他软件。比如按下按钮后，就会通过python运行shell脚本，重新训练模型，注意，这里重新训练的模型名字，要与之前的加载的函数名字一样。
 
 #### visualize
 这段代码定义了一个名为visualize()的函数，并将其装饰为使用 PyWebIO 交互的函数。该函数用于展示音频数据的波形图和频谱图。
@@ -104,7 +104,12 @@ python3 app.py
 
 代码在anomaly.py文件中，主要使用了下面四个函数。
 
-from anomaly import load_anomaly_model, test_anomaly, anomaly_save_and_sort, anomaly_data_select_func
+```
+from anomaly import load_anomaly_model, 
+test_anomaly, 
+anomaly_save_and_sort, 
+anomaly_data_select_func
+```
 
 从app.py文件第25行可以看出，本代码先加载了异常检测模型。如果重新训练模型的话，要重新启动整个项目，才会加载新的模型，这里可以自己改进下。
 
@@ -125,4 +130,9 @@ anomaly_data_select_func : 添加了数据筛选功能，但点击该按钮，�
 + 数据分类
 该函数主要调用了四个函数：
 
-from classification import load_cls_model, test_cls, cls_save_and_sort, cls_data_select_func
+```
+from classification import load_cls_model, 
+test_cls, 
+cls_save_and_sort, 
+cls_data_select_func
+```
